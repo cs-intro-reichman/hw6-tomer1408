@@ -230,5 +230,14 @@ public static Color[][] scaled(Color[][] image, int width, int height) {
 		}
 		StdDraw.show();
 	}
+
+	public static void setCanvas(int length, int length2) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'setCanvas'");
+	}
+
+    static void setCanvas(int length, int length0) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
 
