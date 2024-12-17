@@ -26,6 +26,11 @@ public class Runigram {
 		System.out.println();
 		print(image);
 
+		// Tests the horizontal flipping of an image:
+			image = grayScaled(tinypic);
+			System.out.println();
+			print(image);
+	
 	
 		//// Write here whatever code you need in order to test your work.
 		//// You can continue using the image array.
@@ -134,7 +139,7 @@ public static Color[][] flippedVertically(Color[][] image) {
 		for (int i = 0; i < image.length; i++) {
 			for (int j = 0; j < image[i].length; j++) { 
 				Color pixel = image[i][j]; 
-				grayScaledImage[i][j] = luminance(pixel);;
+				grayScaledImage[i][j] = luminance(pixel);
 				
 			}
 		}
@@ -142,15 +147,28 @@ public static Color[][] flippedVertically(Color[][] image) {
 		return grayScaledImage;
 	}	
 	
-	/**
-	 * Returns an image which is the scaled version of the given image. 
-	 * The image is scaled (resized) to have the given width and height.
-	 */
-	public static Color[][] scaled(Color[][] image, int width, int height) {
-		//// Replace the following statement with your code
-		return null;
-	}
-	
+/**
+ * Returns an image which is the scaled version of the given image. 
+ * The image is scaled (resized) to have the given width and height.
+ */
+public static Color[][] scaled(Color[][] image, int width, int height) {
+    Color[][] scaledImage = new Color[height][width];
+
+    double xScaleFactor = (double) image[0].length / width;
+    double yScaleFactor = (double) image.length / height;
+
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            int originalX = (int) (j * xScaleFactor);
+            int originalY = (int) (i * yScaleFactor);
+
+            scaledImage[i][j] = image[originalY][originalX];
+        }
+    }
+
+    return scaledImage;
+}
+
 	/**
 	 * Computes and returns a blended color which is a linear combination of the two given
 	 * colors. Each r, g, b, value v in the returned color is calculated using the formula 
