@@ -129,8 +129,17 @@ public static Color[][] flippedVertically(Color[][] image) {
 	 * Returns an image which is the grayscaled version of the given image.
 	 */
 	public static Color[][] grayScaled(Color[][] image) {
-		//// Replace the following statement with your code
-		return null;
+		Color[][] grayScaledImage = new Color[image.length][image[0].length];
+    
+		for (int i = 0; i < image.length; i++) {
+			for (int j = 0; j < image[i].length; j++) { 
+				Color pixel = image[i][j]; 
+				grayScaledImage[i][j] = luminance(pixel);;
+				
+			}
+		}
+		
+		return grayScaledImage;
 	}	
 	
 	/**
