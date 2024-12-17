@@ -80,25 +80,32 @@ public class Runigram {
  * Returns an image which is the horizontally flipped version of the given image.
  */
 public static Color[][] flippedHorizontally(Color[][] image) {
-    Color[][] flippedImage = new Color[image.length][image[0].length];
+    Color[][] flippedHorizontallyImage = new Color[image.length][image[0].length];
     
     for (int i = 0; i < image.length; i++) {
         for (int j = 0; j < image[i].length; j++) { 
-            flippedImage[i][j] = image[i][image[i].length - 1 - j]; 
+            flippedHorizontallyImage[i][j] = image[i][image[i].length - 1 - j]; 
         }
     }
     
-    return flippedImage;
+    return flippedHorizontallyImage;
 }
 
-	/**
-	 * Returns an image which is the vertically flipped version of the given image. 
-	 */
-	public static Color[][] flippedVertically(Color[][] image){
-		//// Replace the following statement with your code
-		return null;
-	}
-	
+/**
+ * Returns an image which is the vertically flipped version of the given image. 
+ */
+public static Color[][] flippedVertically(Color[][] image) {
+    Color[][] flippedVerticallyImage = new Color[image.length][image[0].length];
+    
+    for (int i = 0; i < image.length; i++) { 
+        for (int j = 0; j < image[i].length; j++) { 
+            flippedVerticallyImage[i][j] = image[image.length - 1 - i][j]; 
+        }
+    }
+    
+    return flippedVerticallyImage; 
+}
+
 	// Computes the luminance of the RGB values of the given pixel, using the formula 
 	// lum = 0.299 * r + 0.587 * g + 0.114 * b, and returns a Color object consisting
 	// the three values r = lum, g = lum, b = lum.
