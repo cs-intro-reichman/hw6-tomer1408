@@ -190,6 +190,10 @@ public static Color blend(Color c1, Color c2, double alpha) {
  * The two images must have the same dimensions.
  */
 public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) {
+	if (alpha < 0 || alpha > 1) {
+		return null;
+	}
+	
 	if (image1.length != image2.length || image1[0].length != image2[0].length) {
 		return null;
 	}
