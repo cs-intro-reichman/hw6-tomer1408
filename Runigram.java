@@ -207,16 +207,26 @@ public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) 
 }
 
 
-	/**
-	 * Morphs the source image into the target image, gradually, in n steps.
-	 * Animates the morphing process by displaying the morphed image in each step.
-	 * Before starting the process, scales the target image to the dimensions
-	 * of the source image.
-	 */
-	public static void morph(Color[][] source, Color[][] target, int n) {
-		//// Replace this comment with your code
-	}
-	
+/**
+ * Morphs the source image into the target image, gradually, in n steps.
+ * If the images have different dimensions, scales the target image to match
+ * the dimensions of the source image.
+ * Displays each intermediate result and pauses for 500 milliseconds between steps.
+ */
+public static void morph(Color[][] source, Color[][] target, int n) {
+  
+    if (source.length != target.length || source[0].length != target[0].length) {
+        target = Runigram.scaled(target, source[0].length, source.length);
+    }
+
+    for (int step = 0; step <= n; step++) {
+        double alpha = (double) (n - step) / n;
+        Color[][] blendedImage = blend(source, target, alpha);
+        Runigram.display(blendedImage);
+        StdDraw.pause(500);
+    }
+}
+
 	/** Creates a canvas for the given image. */
 	public static void setCanvas(Color[][] image) {
 		StdDraw.setTitle("Runigram 2023");
