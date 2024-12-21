@@ -25,6 +25,7 @@ public class Runigram {
 		image = flippedVertically(tinypic);
 		System.out.println();
 		print(image);
+		
 
 		// Tests the horizontal flipping of an image:
 			image = grayScaled(tinypic);
@@ -226,7 +227,8 @@ public static void morph(Color[][] source, Color[][] target, int n) {
     for (int step = 0; step <= n; step++) {
         double alpha = (double) (n - step) / n;
         Color[][] blendedImage = blend(source, target, alpha);
-        Runigram.display(blendedImage);
+        setCanvas(blendedImage);
+		display(blendedImage);
         StdDraw.pause(500);
     }
 }
