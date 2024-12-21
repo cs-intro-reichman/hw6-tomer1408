@@ -25,7 +25,7 @@ public class Runigram {
 		image = flippedVertically(tinypic);
 		System.out.println();
 		print(image);
-		
+
 
 		// Tests the horizontal flipping of an image:
 			image = grayScaled(tinypic);
@@ -178,11 +178,11 @@ public static Color[][] scaled(Color[][] image, int width, int height) {
  */
 public static Color blend(Color c1, Color c2, double alpha) {
 
-    int r = (int) Math.round(alpha * c1.getRed() + (1 - alpha) * c2.getRed());
-    int g = (int) Math.round(alpha * c1.getGreen() + (1 - alpha) * c2.getGreen());
-    int b = (int) Math.round(alpha * c1.getBlue() + (1 - alpha) * c2.getBlue());
+    double r = (double) alpha * c1.getRed() + (1 - alpha) * c2.getRed();
+    double g = (double) alpha * c1.getGreen() + (1 - alpha) * c2.getGreen();
+    double b = (double) alpha * c1.getBlue() + (1 - alpha) * c2.getBlue();
 
-    return new Color(r, g, b);
+    return new Color((int)r, (int)g, (int)b);
 }
 /**
  * Constructs and returns an image which is the blending of the two given images.
